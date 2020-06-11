@@ -13,6 +13,7 @@
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
 
+// ----------------------------------------------------------------------------------------
 
 //User clicks the button asking to generate a password
 
@@ -31,24 +32,53 @@ while (passwordLength < 8 || passwordLength > 128) {
 
 // -------------------------------------
 
+// Create and array to store user selector password preferences
+
+var passwordSettings = []
+
 // CONFIRM asks the user if they would like to include LOWER CASE letters in their password. 
 
+var lowerCase = confirm("Would you like your password to include lower case letters?")
+  console.log(lowerCase)
+  
+
 // Lower case confirmation variable is changed to TRUE
+
+passwordSettings.push(lowerCase)
+  console.log(passwordSettings)
 
 
 // CONFIRM asks the user if they would like to include UPPER CASE letters in their password. 
 
+var upperCase = confirm("Would you like your password to include upper case letters?")
+  console.log(upperCase)
+
 // Upper case confirmation variable is changed to TRUE
+
+passwordSettings.push(upperCase)
+  console.log(passwordSettings)
 
 
 // CONFIRM asks the user if they would like to include NUMBERS in their password. 
 
+var numbers = confirm("Would you like your password to include numbers?")
+  console.log(numbers)
+
 // Numbers confirmation variable is changed to TRUE
+
+passwordSettings.push(numbers)
+  console.log(passwordSettings)
 
 
 // CONFIRM asks the user if they would like to include SYMBOLS in their password. 
 
+var symbols = confirm("Would you like your password to include symbols?")
+  console.log(symbols)
+
 // Symbols confirmation variable is changed to TRUE
+
+passwordSettings.push(symbols)
+  console.log(passwordSettings)
 
 
 
