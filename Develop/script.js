@@ -1,17 +1,17 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+// var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+//   passwordText.value = password;
 
-}
+// }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
 
 
 //User clicks the button asking to generate a password
@@ -20,7 +20,14 @@ generateBtn.addEventListener("click", writePassword);
 
 //PROMPT asks the user how long they would like their password to be. Between 8-128 characters. 
 
+var passwordLength = prompt("How long would you like your password to be? Password must be between 8-128 characters")
+
 // Validation checks to see if the number inputted is less than 8 or greater than 128. If so, loop and keep asking user the same question. 
+
+while (passwordLength < 8 || passwordLength > 128) {
+  alert("Please type a password length between 8-128 characters long")
+  passwordLength = prompt("How long would you like your password to be? Password must be between 8-128 characters")
+} 
 
 // -------------------------------------
 
