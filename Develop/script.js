@@ -34,66 +34,78 @@ while (passwordLength < 8 || passwordLength > 128) {
 
 // Create and array to store user selector password preferences
 
-var passwordSettings = []
+var passwordSettingsArr = []
+
+allPasswordSettings()
+
+// Create a function to store the password preferenaces below
+function allPasswordSettings (){
 
 // CONFIRM asks the user if they would like to include LOWER CASE letters in their password. 
-
 var lowerCase = confirm("Would you like your password to include lower case letters?")
   console.log(lowerCase)
   
 
 // Lower case confirmation variable is changed to TRUE
+passwordSettingsArr.push(lowerCase)
+  console.log(passwordSettingsArr)
 
-passwordSettings.push(lowerCase)
-  console.log(passwordSettings)
-
-
+  
 // CONFIRM asks the user if they would like to include UPPER CASE letters in their password. 
-
-var upperCase = confirm("Would you like your password to include upper case letters?")
+var upperCase = confirm("Would you like your password to include upper case letters")
   console.log(upperCase)
 
-// Upper case confirmation variable is changed to TRUE
 
-passwordSettings.push(upperCase)
-  console.log(passwordSettings)
+// Upper case confirmation variable is changed to TRUE
+passwordSettingsArr.push(upperCase)
+  console.log(passwordSettingsArr)
 
 
 // CONFIRM asks the user if they would like to include NUMBERS in their password. 
-
 var numbers = confirm("Would you like your password to include numbers?")
   console.log(numbers)
 
-// Numbers confirmation variable is changed to TRUE
 
-passwordSettings.push(numbers)
-  console.log(passwordSettings)
+// Numbers confirmation variable is changed to TRUE
+passwordSettingsArr.push(numbers)
+  console.log(passwordSettingsArr)
 
 
 // CONFIRM asks the user if they would like to include SYMBOLS in their password. 
-
 var symbols = confirm("Would you like your password to include symbols?")
   console.log(symbols)
 
+
 // Symbols confirmation variable is changed to TRUE
+passwordSettingsArr.push(symbols)
+  console.log(passwordSettingsArr)
 
-passwordSettings.push(symbols)
-  console.log(passwordSettings)
+// Calls the validation function to make sure at least one of the answers above was true. 
+passwordValidation()  
+}
 
-
+// ---------------------------------------------------------------------------
 
 // Validation checks to verify that at least one of the prompts above was answered TRUE.
 
-// ---------------------------------------
+function passwordValidation () {
 
+  const checkPasswordSettings = (currentValue) => currentValue === false;
+              
+  console.log(passwordSettingsArr.every(checkPasswordSettings));
 
-// The four password generator functions are put into an array.
+  if (passwordSettingsArr.every(checkPasswordSettings) === true) {
+    alert("You must select at least one preference")
 
-// A for-loop is started, looping equal to the length of the password the user entered. 
+    // Clear passwordSsettings array for the user to try again
+    passwordSettingsArr.length = 0;
 
-// Using Math.random, the four functions are randomly called inside the for-loop to input a value into a separate password array.
+    // Call the function to start over the selection process
+    allPasswordSettings()
+  }
+}
 
-// The password array is printed to the webpage. 
+console.log(passwordSettingsArr)
 
 
 
